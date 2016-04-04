@@ -1,0 +1,29 @@
+[4760:1252:0404/193042:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[4760:1252:0404/193042:VERBOSE1:crash_service.cc(142)] window handle is 003F0A48
+[4760:1252:0404/193042:VERBOSE1:crash_service.cc(290)] pipe name is \\.\pipe\Atom Crash Service
+dumps at C:\cygwin64\tmp\Atom Crashes
+[4760:1252:0404/193042:VERBOSE1:crash_service.cc(294)] checkpoint is C:\cygwin64\tmp\Atom Crashes\crash_checkpoint.txt
+server is http://54.249.141.255:1127/post
+maximum 128 reports/day
+reporter is electron-crash-service
+[4760:1252:0404/193042:VERBOSE1:crash_service_main.cc(84)] Ready to process crash requests
+[4760:10404:0404/193042:VERBOSE1:crash_service.cc(323)] client start. pid = 5900
+[4760:10404:0404/193043:VERBOSE1:crash_service.cc(323)] client start. pid = 11780
+[6984:12252:0404/193043:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[6984:12252:0404/193043:VERBOSE1:crash_service.cc(142)] window handle is 004A0FEE
+[6984:12252:0404/193043:VERBOSE1:crash_service.cc(290)] pipe name is \\.\pipe\Atom Crash Service
+dumps at C:\cygwin64\tmp\Atom Crashes
+[6984:12252:0404/193043:VERBOSE1:crash_service.cc(294)] checkpoint is C:\cygwin64\tmp\Atom Crashes\crash_checkpoint.txt
+server is http://54.249.141.255:1127/post
+maximum 128 reports/day
+reporter is electron-crash-service
+[6984:12252:0404/193043:ERROR:crash_service.cc(301)] could not start dumper
+[4760:11328:0404/193100:VERBOSE1:crash_service.cc(331)] client end. pid = 11780
+[4760:11328:0404/193100:VERBOSE1:crash_service.cc(331)] client end. pid = 5900
+[4760:11328:0404/193101:VERBOSE1:crash_service.cc(352)] zero clients. exiting
+[4760:1252:0404/193101:VERBOSE1:crash_service.cc(490)] session ending..
+[4760:1252:0404/193101:VERBOSE1:crash_service.cc(495)] clients connected :2
+clients terminated :2
+dumps serviced :0
+dumps reported :0
+[4760:1252:0404/193101:VERBOSE1:crash_service_main.cc(89)] Session end. return code is 0

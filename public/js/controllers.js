@@ -1,6 +1,19 @@
 // js/controller.js
 
 angular.module('movies.controllers', [])
+  .controller('MoviesCtrl', function($scope, $location, moviesService){
+    console.log('In Movies Controller');
+    console.log($location.search());
+    $scope.page = +($location.search().page || 1);
+    if($scope.page <= 1){
+      $scope.page = 1;
+      $scope.isPrevDisabled = true;
+    }
+
+    moviesService.all(  $scope.page , function(data){
+      $scope.movies = data;
+    });
+  })
   .controller('GenresCtrl', function($scope, genresService){
     console.log('In Genres Controller');
 
@@ -50,7 +63,6 @@ angular.module('movies.controllers', [])
     $scope.goToNextPage = function(){
       changePage(+1);
     }
-
 
     $scope.rate = 7;
     $scope.max = 10;

@@ -31,8 +31,8 @@ public class MoviesController {
 	// GET /api/movies?page=2 -> all movies
 	// @RequestMapping("/movies")
 	@RequestMapping(value = "/movies", method = RequestMethod.GET)
-	public List<MovieResponseModel> getAll(Integer page, String pattern) throws Exception {
-		return this.moviesService.search(pattern, page).stream().map(MovieResponseModel::FromModel)
+	public List<MovieResponseModel> getAll(Integer page, String pattern, Integer pageSize) throws Exception {
+		return this.moviesService.search(pattern, page, pageSize).stream().map(MovieResponseModel::FromModel)
 				.collect(Collectors.toList());
 	}
 

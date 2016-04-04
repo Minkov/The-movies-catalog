@@ -47,3 +47,32 @@ server is http://54.249.141.255:1127/post
 maximum 128 reports/day
 reporter is electron-crash-service
 [9624:12896:0404/154916:ERROR:crash_service.cc(301)] could not start dumper
+[12204:5536:0404/192821:VERBOSE1:crash_service.cc(331)] client end. pid = 9476
+[12204:5536:0404/192821:VERBOSE1:crash_service.cc(331)] client end. pid = 12404
+[12204:5536:0404/192822:VERBOSE1:crash_service.cc(352)] zero clients. exiting
+[12204:11180:0404/192822:VERBOSE1:crash_service.cc(490)] session ending..
+[12204:11180:0404/192822:VERBOSE1:crash_service.cc(495)] clients connected :2
+clients terminated :2
+dumps serviced :0
+dumps reported :0
+[12204:11180:0404/192822:VERBOSE1:crash_service_main.cc(89)] Session end. return code is 0
+[10336:11924:0404/193103:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[10336:11924:0404/193103:VERBOSE1:crash_service.cc(142)] window handle is 00750C50
+[10336:11924:0404/193103:VERBOSE1:crash_service.cc(290)] pipe name is \\.\pipe\Atom Crash Service
+dumps at C:\cygwin64\tmp\Atom Crashes
+[10336:11924:0404/193103:VERBOSE1:crash_service.cc(294)] checkpoint is C:\cygwin64\tmp\Atom Crashes\crash_checkpoint.txt
+server is http://54.249.141.255:1127/post
+maximum 128 reports/day
+reporter is electron-crash-service
+[10336:11924:0404/193103:VERBOSE1:crash_service_main.cc(84)] Ready to process crash requests
+[10336:8604:0404/193103:VERBOSE1:crash_service.cc(323)] client start. pid = 11064
+[10336:8604:0404/193103:VERBOSE1:crash_service.cc(323)] client start. pid = 9224
+[2864:7404:0404/193103:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[2864:7404:0404/193103:VERBOSE1:crash_service.cc(142)] window handle is 005B0E9A
+[2864:7404:0404/193103:VERBOSE1:crash_service.cc(290)] pipe name is \\.\pipe\Atom Crash Service
+dumps at C:\cygwin64\tmp\Atom Crashes
+[2864:7404:0404/193103:VERBOSE1:crash_service.cc(294)] checkpoint is C:\cygwin64\tmp\Atom Crashes\crash_checkpoint.txt
+server is http://54.249.141.255:1127/post
+maximum 128 reports/day
+reporter is electron-crash-service
+[2864:7404:0404/193103:ERROR:crash_service.cc(301)] could not start dumper

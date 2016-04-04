@@ -9,7 +9,7 @@ import movies.models.Movie;
 
 public interface IMoviesService {
 
-	public List<Movie> search(String pattern, Integer page);
+	public List<Movie> search(String pattern, Integer page, Integer pageSize);
 
 	public Movie getMovieById(int id) throws NoSuchRequestHandlingMethodException;
 

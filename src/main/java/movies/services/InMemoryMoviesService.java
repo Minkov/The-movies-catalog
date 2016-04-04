@@ -16,7 +16,7 @@ import movies.utils.IdGenerator;
 
 @Service
 public class InMemoryMoviesService implements IMoviesService {
-	private final static int PAGE_SIZE = 10;
+	private final static int DEFAULT_PAGE_SIZE = 10;
 	private IdGenerator idGenerator;
 
 	public InMemoryMoviesService() {
@@ -24,14 +24,15 @@ public class InMemoryMoviesService implements IMoviesService {
 	}
 
 	@Override
-	public List<Movie> search(String pattern, Integer page) {
+	public List<Movie> search(String pattern, Integer page, Integer pageSize) {
+		pageSize = (pageSize == null || pageSize < 1) ? DEFAULT_PAGE_SIZE : pageSize;
 		page = (page == null || page < 1) ? 1 : page;
 
 		final String thePattern = (pattern == null ? "" : pattern).toLowerCase();
 
 		System.out.printf("Pattern: %s%n", pattern);
 		return DataStorage.movies.stream().filter(movie -> movie.getTitle().toLowerCase().contains(thePattern))
-				.collect(Collectors.toList()).subList((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+				.collect(Collectors.toList()).subList((page - 1) * pageSize, page * pageSize);
 	}
 
 	@Override

@@ -19,4 +19,15 @@ angular.module('movies.services', [])
           });
       }
     };
+  })
+  .factory('moviesService', function($http){
+    return {
+      all: function(page, callbackFunc) {
+        var url = "api/movies?pageSize=9&page=" + page;
+        $http.get(url)
+          .success(function(data){
+            callbackFunc(data);
+          });
+      }
+    };
   });
