@@ -1,19 +1,33 @@
-package movies.models;
+package responseModels;
 
 import java.util.Set;
 
-public class Movie {
+import movies.models.Genre;
+import movies.models.Movie;
+
+public class MovieResponseModel {
 	private int id;
 
 	private String title;
-
-	private String description;
 
 	private int votesCount;
 
 	private double rating;
 
 	private Set<Genre> genres;
+
+	public MovieResponseModel(int id, String title, int votesCount, double rating, Set<Genre> genres) {
+		this.setId(id);
+		this.setTitle(title);
+		this.setVotesCount(votesCount);
+		this.setRating(rating);
+		this.setGenres(genres);
+	}
+
+	public static MovieResponseModel FromModel(Movie movie) {
+		return new MovieResponseModel(movie.getId(), movie.getTitle(), movie.getVotesCount(), movie.getRating(),
+				movie.getGenres());
+	}
 
 	public int getId() {
 		return id;
@@ -43,20 +57,8 @@ public class Movie {
 		return rating;
 	}
 
-	public void setRating(double rating) throws Exception {
-		if (rating < 1 || rating > 5) {
-			throw new Exception();
-		}
-
+	public void setRating(double rating) {
 		this.rating = rating;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public Set<Genre> getGenres() {
