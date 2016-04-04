@@ -1,12 +1,10 @@
 package movies.services;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import movies.models.Genre;
-import movies.models.Movie;
 import movies.utils.DataStorage;
 
 @Service
@@ -16,7 +14,7 @@ public class InMemoryGenresService {
 		return DataStorage.genres;
 	}
 
-	public List<Movie> getMoviesForGenre(int id) {
+	public Genre getGenreById(int id) {
 		Genre genre = null;
 
 		for (Genre currentGenre : DataStorage.genres) {
@@ -25,10 +23,6 @@ public class InMemoryGenresService {
 				break;
 			}
 		}
-
-		final Genre theGenre = genre;
-
-		return DataStorage.movies.stream().filter(movie -> movie.getGenres().contains(theGenre))
-				.collect(Collectors.toList());
+		return genre;
 	}
 }

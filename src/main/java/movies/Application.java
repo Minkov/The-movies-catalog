@@ -31,6 +31,7 @@ public class Application {
 		for (int i = 0; i < count; i++) {
 			String title = "Movie #" + (i + 1);
 			String description = "Я Ю ѝ ж ъ ь ѝDescription for movie #" + (i + 1);
+			String imgUrl = "http://www.telegraph.co.uk/content/dam/film/Batmanvsuperman/batmanvsuperman-xlarge.jpg";
 
 			for (int k = 0; k < 3; k++) {
 				description += description;
@@ -45,7 +46,7 @@ public class Application {
 			}
 
 			try {
-				service.add(title, description, movieGenres);
+				service.add(title, description, imgUrl, movieGenres);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

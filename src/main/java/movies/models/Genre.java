@@ -1,8 +1,16 @@
 package movies.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Genre {
 	private int id;
 	private String name;
+	private Set<Movie> movies;
+
+	public Genre() {
+		this.movies = new HashSet<Movie>();
+	}
 
 	public int getId() {
 		return id;
@@ -18,6 +26,14 @@ public class Genre {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Set<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(Set<Movie> movies) {
+		this.movies = movies;
 	}
 
 	@Override

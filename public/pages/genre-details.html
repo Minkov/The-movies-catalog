@@ -1,0 +1,27 @@
+<h1>{{name}}</h1>
+
+<div class="row">
+  <button ng-if="isPrevDisabled"  class="btn col-xs-6" disabled="disabled">Prev</button>
+  <button ng-if="!isPrevDisabled" class="btn col-xs-6" ng-click="goToPrevPage()">Prev</button>
+  <button class="btn col-xs-6" ng-click="goToNextPage()">Next</button>
+</div>
+
+<uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+<div class="row">
+  <div class="movie-cell col-md-4 col-sm-6 col-xs-12" ng-repeat="movie in movies">
+    <div>
+      <div class="row">
+        <img src="{{movie.imgUrl}}" class="col-xs-5" />
+        <div class="col-xs-7">
+          <strong class="row">{{movie.title}}</strong>
+
+        </div>
+      </div>
+      <div class="row">
+        <p class="col-xs-12">{{movie.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.movie-cell {
+  padding: 15px
+}
+
+.movie-cell > div {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}

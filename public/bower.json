@@ -1,0 +1,29 @@
+{
+  "name": "the-movies-catalogf",
+  "homepage": "https://github.com/Minkov/The-movies-catalog",
+  "authors": [
+    "Doncho Minkov <donchominkov@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "bootstrap-star-rating": "^4.0.1",
+    "ionic-rating": "^0.3.0",
+    "ui.bootstrap": "^1.2.5",
+    "angular-animate": "^1.5.3",
+    "angular-bootstrap": "^1.2.5"
+  }
+}

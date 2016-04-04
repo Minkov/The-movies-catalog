@@ -1,5 +1,6 @@
 package movies.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
 
 import movies.contracts.IMoviesService;
+import movies.models.Genre;
 import movies.models.Movie;
 import responseModels.MovieResponseModel;
 
@@ -37,7 +39,8 @@ public class MoviesController {
 	// POST /api/movies -> create new movie
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
 	public Movie addMovie(@RequestBody Movie newMovie) throws Exception {
-		return this.moviesService.add(newMovie.getTitle(), newMovie.getDescription());
+		return this.moviesService.add(newMovie.getTitle(), newMovie.getDescription(), newMovie.getImgUrl(),
+				new ArrayList<Genre>(newMovie.getGenres()));
 	}
 
 	// GET /api/movies/MOVIE_ID -> detailed info about movie

@@ -24,9 +24,33 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.hibernate:hibernate-core:5.1.0.Final")
     testCompile("junit:junit")
+    
 }
 
 task wrapper(type: Wrapper) {

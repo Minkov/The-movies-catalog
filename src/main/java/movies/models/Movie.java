@@ -1,5 +1,6 @@
 package movies.models;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Movie {
@@ -9,11 +10,17 @@ public class Movie {
 
 	private String description;
 
+	private String imgUrl;
+
 	private int votesCount;
 
 	private double rating;
 
 	private Set<Genre> genres;
+
+	public Movie() {
+		this.genres = new HashSet<Genre>();
+	}
 
 	public int getId() {
 		return id;
@@ -65,5 +72,23 @@ public class Movie {
 
 	public void setGenres(Set<Genre> genres) {
 		this.genres = genres;
+	}
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		try {
+			Movie other = (Movie) obj;
+			return this.id == other.id;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 }

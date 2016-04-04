@@ -1,0 +1,11 @@
+<h1>Genres: It works!</h1>
+<h2>It really works</h2>
+<button class="btn btn-danger"
+  ng-click="onClick()">Click</button>
+<ul>
+  <li ng-repeat="genre in genres">
+    <a href="#/genres/{{genre.id}}">
+      {{genre.name}}
+    </a>
+  </li>
+</ul>

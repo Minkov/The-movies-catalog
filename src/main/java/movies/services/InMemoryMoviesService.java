@@ -1,6 +1,5 @@
 package movies.services;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -36,27 +35,25 @@ public class InMemoryMoviesService implements IMoviesService {
 	}
 
 	@Override
-	public Movie add(String title, String description) throws Exception {
-		return this.add(title, description, new ArrayList<Genre>());
-	}
-
-	@Override
-	public Movie add(String title, String description, List<Genre> genres) throws Exception {
+	public Movie add(String title, String description, String imgUrl, List<Genre> genres) throws Exception {
 		Movie movie = new Movie();
 		movie.setId(this.idGenerator.getNextId());
 		movie.setRating(1);
 		movie.setVotesCount(0);
 		movie.setTitle(title);
+		movie.setImgUrl(imgUrl);
 		movie.setDescription(description);
 
 		Set<Genre> theGenres = genres.stream().map(g -> {
 			for (Genre currentGenre : DataStorage.genres) {
 				boolean result = currentGenre.getName().toLowerCase().equals(g.getName().toLowerCase());
 				if (result) {
+					currentGenre.getMovies().add(movie);
 					return currentGenre;
 				}
 			}
 			DataStorage.genres.add(g);
+			g.getMovies().add(movie);
 			return g;
 		}).collect(Collectors.toSet());
 
