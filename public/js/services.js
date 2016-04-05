@@ -28,6 +28,22 @@ angular.module('movies.services', [])
           .success(function(data){
             callbackFunc(data);
           });
+      },
+      add: function(movie, callbackFunc){
+        var url = 'api/movies';
+
+        var req = {
+           method: 'POST',
+           url: url,
+           headers: {
+             'Content-Type': 'application/json'
+           },
+           data: movie
+         };
+
+          $http(req).then(function(response){
+            callbackFunc(response.data);
+          });
       }
     };
   });

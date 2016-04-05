@@ -15,7 +15,8 @@ import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMeth
 import movies.contracts.IMoviesService;
 import movies.models.Genre;
 import movies.models.Movie;
-import responseModels.MovieResponseModel;
+import movies.requestModels.MovieRequestModel;
+import movies.responseModels.MovieResponseModel;
 
 @RestController
 @RequestMapping("/api")
@@ -38,9 +39,9 @@ public class MoviesController {
 
 	// POST /api/movies -> create new movie
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
-	public Movie addMovie(@RequestBody Movie newMovie) throws Exception {
+	public Movie addMovie(@RequestBody MovieRequestModel newMovie) throws Exception {
 		return this.moviesService.add(newMovie.getTitle(), newMovie.getDescription(), newMovie.getImgUrl(),
-				new ArrayList<Genre>(newMovie.getGenres()));
+				new ArrayList<Genre>());
 	}
 
 	// GET /api/movies/MOVIE_ID -> detailed info about movie

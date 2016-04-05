@@ -76,3 +76,14 @@ server is http://54.249.141.255:1127/post
 maximum 128 reports/day
 reporter is electron-crash-service
 [2864:7404:0404/193103:ERROR:crash_service.cc(301)] could not start dumper
+[10336:1508:0404/195446:VERBOSE1:crash_service.cc(331)] client end. pid = 9224
+[10336:1508:0404/195446:VERBOSE1:crash_service.cc(331)] client end. pid = 11064
+[10336:1508:0404/195447:VERBOSE1:crash_service.cc(352)] zero clients. exiting
+[10336:11924:0404/195447:VERBOSE1:crash_service.cc(490)] session ending..
+[10336:11924:0404/195447:VERBOSE1:crash_service.cc(495)] clients connected :2
+clients terminated :2
+dumps serviced :0
+dumps reported :0
+[10336:11924:0404/195447:VERBOSE1:crash_service_main.cc(89)] Session end. return code is 0
+[2844:7052:0405/130457:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]
+[13236:11868:0405/130459:VERBOSE1:crash_service_main.cc(68)] Session start. cmdline is [--reporter-url=http://54.249.141.255:1127/post --application-name=Atom --v=1]

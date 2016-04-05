@@ -7,7 +7,48 @@
   <a href="#/movies?page={{page+1}}" ng-if="!isNextDisabled" class="btn btn-danger col-xs-6">Next</a>
 </div>
 <div class="row">
-  <div class="movie-cell col-md-4 col-sm-6 col-xs-12" ng-repeat="movie in movies">
+  <div class="col-xs-12">
+    <div class="row">
+      <button class="btn-add-movie btn btn-danger col-xs-12"
+              ng-click="isAddNewMovieBoxVisible=!isAddNewMovieBoxVisible">
+          Add new movie
+      </button>
+    </div>
+    <div class="row">
+      <div class="add-new-movie-box col-xs-12" ng-show="isAddNewMovieBoxVisible">
+        <h1 class="text-center">Add movie</h1>
+        <div class="form-inline text-center">
+          <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control" ng-model="newMovieData.title" />
+          </div>
+          <div class="form-group">
+            <label>Genres:</label>
+            <input type="text" class="form-control" ng-model="newMovieData.genres" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea class="form-control" ng-model="newMovieData.description" />
+        </div>
+        <div class="form-group">
+          <label>Image:</label>
+          <input type="text" class="form-control" ng-model="newMovieData.imgUrl" />
+        </div>
+        <img ng-src="{{newMovieData.imgUrl}}" />
+        <button class="btn btn-danger btn-block" ng-click="onAddButtonClicked()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" class="form-control" ng-model="search.query" />
+  </div>
+</div>
+<div class="row">
+  <div class="movie-cell col-md-4 col-sm-6 col-xs-12"
+      ng-repeat="movie in movies | filter:search.query">
     <div>
       <div class="row">
         <img src="{{movie.imgUrl}}" class="col-xs-5" />

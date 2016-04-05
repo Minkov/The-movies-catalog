@@ -1,8 +1,21 @@
 .movie-cell {
-  padding: 15px
+  padding: 15px;
+  height: 150px;
+  overflow: hidden;
 }
 
 .movie-cell > div {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
+
+}
+
+.add-new-movie-box {
+  font-size: 1.3em;
+  position: absolute;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 15px;
+  padding: 15px;
+  z-index: 100;
 }

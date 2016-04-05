@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import movies.contracts.IGenresService;
 import movies.models.Genre;
-import movies.services.InMemoryGenresService;
-import responseModels.GenreDetailsResponseModel;
-import responseModels.GenreResponseModel;
+import movies.responseModels.GenreDetailsResponseModel;
+import movies.responseModels.GenreResponseModel;
 
 @RestController
 @RequestMapping("/api")
 public class GenresController {
 
-	private InMemoryGenresService genresService;
+	private IGenresService genresService;
 
 	@Autowired
-	public GenresController(InMemoryGenresService genresService) {
+	public GenresController(IGenresService genresService) {
 		this.genresService = genresService;
 	}
 

@@ -5,32 +5,36 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.springframework.stereotype.Service;
+import org.hibernate.Session;
 import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
 
 import movies.contracts.IMoviesService;
+import movies.db.HibernateUtils;
 import movies.models.Genre;
 import movies.models.Movie;
 import movies.utils.DataStorage;
 import movies.utils.IdGenerator;
 
-@Service
+//@Service
 public class InMemoryMoviesService implements IMoviesService {
 	private final static int DEFAULT_PAGE_SIZE = 10;
 	private IdGenerator idGenerator;
 
 	public InMemoryMoviesService() {
 		this.idGenerator = new IdGenerator();
+		System.out.println("In Movies service");
 	}
 
 	@Override
-	public List<Movie> search(String pattern, Integer page, Integer pageSize) {
+	public List<Movie> search(String pattern, Integer page, Integer pageSize) throws Exception {
+		Session session = HibernateUtils.getSessionFactory().openSession();
+
 		pageSize = (pageSize == null || pageSize < 1) ? DEFAULT_PAGE_SIZE : pageSize;
 		page = (page == null || page < 1) ? 1 : page;
 
 		final String thePattern = (pattern == null ? "" : pattern).toLowerCase();
 
-		System.out.printf("Pattern: %s%n", pattern);
+		session.close();
 		return DataStorage.movies.stream().filter(movie -> movie.getTitle().toLowerCase().contains(thePattern))
 				.collect(Collectors.toList()).subList((page - 1) * pageSize, page * pageSize);
 	}
@@ -53,6 +57,7 @@ public class InMemoryMoviesService implements IMoviesService {
 					return currentGenre;
 				}
 			}
+
 			DataStorage.genres.add(g);
 			g.getMovies().add(movie);
 			return g;

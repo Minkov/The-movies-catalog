@@ -1,4 +1,4 @@
-package responseModels;
+package movies.responseModels;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -40,9 +40,10 @@ public class MovieResponseModel {
 		String imgUrl = movie.getImgUrl();
 		int votesCount = movie.getVotesCount();
 		double rating = movie.getRating();
-		Set<GenreResponseModel> genres = movie.getGenres().stream().map(GenreResponseModel::fromModel)
-				.collect(Collectors.toSet());
-
+		Set<GenreResponseModel> genres = null;
+		if (movie.getGenres() != null) {
+			genres = movie.getGenres().stream().map(GenreResponseModel::fromModel).collect(Collectors.toSet());
+		}
 		return new MovieResponseModel(id, title, description, imgUrl, votesCount, rating, genres);
 	}
 

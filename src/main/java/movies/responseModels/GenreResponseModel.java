@@ -1,4 +1,4 @@
-package responseModels;
+package movies.responseModels;
 
 import movies.models.Genre;
 

@@ -10,7 +10,32 @@ angular.module('movies.controllers', [])
       $scope.isPrevDisabled = true;
     }
 
-    moviesService.all(  $scope.page , function(data){
+    $scope.isAddNewMovieBoxVisible = false;
+
+    $scope.newMovieData = {
+      title: 'Sample title',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      genres: 'Action',
+      imgUrl: 'http://static2.gamespot.com/uploads/scale_large/104/1049837/2891179-batman-arkham_knight-review_nologo_20150618.jpg'
+    };
+
+    $scope.onAddButtonClicked = function(){
+      var movie = {
+        title: $scope.newMovieData.title,
+        description: $scope.newMovieData.description,
+        imgUrl: $scope.newMovieData.imgUrl,
+        genres: [$scope.newMovieData.genres]
+      };
+
+      moviesService.add(movie, function(newMovie){
+          alert('Movie ' + movie.title + ' Added');
+          $scope.isAddNewMovieBoxVisible = false;
+          console.log(newMovie);
+          $scope.movies.push(newMovie);
+      });
+    };
+
+    moviesService.all($scope.page , function(data){
       $scope.movies = data;
     });
   })
