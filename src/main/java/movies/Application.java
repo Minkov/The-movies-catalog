@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import movies.db.HibernateUtils;
 import movies.models.Genre;
 import movies.models.Movie;
 
@@ -20,12 +21,9 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 
-		// Session session = HibernateUtils.getSessionFactory().openSession();
-		// seedGenres(session);
-		// seedMovies(session);
-		// session.close();
-
-		// seed();
+		Session session = HibernateUtils.getSessionFactory().openSession();
+		seedGenres(session);
+		session.close();
 	}
 
 	private static void seedMovies(Session session) {

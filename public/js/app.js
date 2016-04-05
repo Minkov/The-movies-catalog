@@ -19,6 +19,6 @@ angular.module('movies', ['ngRoute','movies.services', 'movies.controllers'], fu
         controller: 'GenreDetailsCtrl'
       })
       .otherwise({
-        redirectTo: '/genres'
+        redirectTo: '/movies'
       });
   }]);

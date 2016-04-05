@@ -1,9 +1,12 @@
 package movies.requestModels;
 
+import java.util.List;
+
 public class MovieRequestModel {
 	private String title;
 	private String description;
 	private String imgUrl;
+	private List<String> genres;
 
 	public String getTitle() {
 		return title;
@@ -27,5 +30,13 @@ public class MovieRequestModel {
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public List<String> getGenres() {
+		return genres;
+	}
+
+	public void setGenres(List<String> genres) {
+		this.genres = genres;
 	}
 }

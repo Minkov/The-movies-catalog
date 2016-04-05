@@ -1,6 +1,6 @@
 package movies.controllers;
 
-import java.util.ArrayList;
+import java.rmi.NoSuchObjectException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMethodException;
 
 import movies.contracts.IMoviesService;
-import movies.models.Genre;
 import movies.models.Movie;
 import movies.requestModels.MovieRequestModel;
 import movies.responseModels.MovieResponseModel;
@@ -39,14 +37,13 @@ public class MoviesController {
 
 	// POST /api/movies -> create new movie
 	@RequestMapping(value = "/movies", method = RequestMethod.POST)
-	public Movie addMovie(@RequestBody MovieRequestModel newMovie) throws Exception {
-		return this.moviesService.add(newMovie.getTitle(), newMovie.getDescription(), newMovie.getImgUrl(),
-				new ArrayList<Genre>());
+	public Movie addMovie(@RequestBody MovieRequestModel model) throws Exception {
+		return this.moviesService.add(model.getTitle(), model.getDescription(), model.getImgUrl(), model.getGenres());
 	}
 
 	// GET /api/movies/MOVIE_ID -> detailed info about movie
 	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.GET)
-	public Movie getById(@PathVariable(value = "movieId") int id) throws NoSuchRequestHandlingMethodException {
+	public Movie getById(@PathVariable(value = "movieId") int id) throws NoSuchObjectException {
 		return this.moviesService.getMovieById(id);
 	}
 

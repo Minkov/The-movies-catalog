@@ -15,8 +15,18 @@ angular.module('movies.controllers', [])
     $scope.newMovieData = {
       title: 'Sample title',
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      genres: 'Action',
+      genre: 'Action',
+      genres: [],
       imgUrl: 'http://static2.gamespot.com/uploads/scale_large/104/1049837/2891179-batman-arkham_knight-review_nologo_20150618.jpg'
+    };
+
+    $scope.onAddGenreButtonClick = function(){
+      if(!$scope.newMovieData.genre ||
+          $scope.newMovieData.genres.indexOf($scope.newMovieData.genre) >= 0){
+          return;
+      }
+      $scope.newMovieData.genres.push($scope.newMovieData.genre);
+      $scope.newMovieData.genre = '';
     };
 
     $scope.onAddButtonClicked = function(){
@@ -24,8 +34,9 @@ angular.module('movies.controllers', [])
         title: $scope.newMovieData.title,
         description: $scope.newMovieData.description,
         imgUrl: $scope.newMovieData.imgUrl,
-        genres: [$scope.newMovieData.genres]
+        genres: $scope.newMovieData.genres
       };
+
 
       moviesService.add(movie, function(newMovie){
           alert('Movie ' + movie.title + ' Added');
